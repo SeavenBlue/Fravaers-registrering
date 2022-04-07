@@ -104,7 +104,7 @@ results.forEach((bestMatch, i) => {
   const box = fullFaceDescriptions[i].detection.box
   const text = bestMatch.toString()
   const drawBox = new faceapi.draw.DrawBox(box, { label: text })
-  
+  console.log(text)
   drawBox.draw("overlay")
 })
 

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script src="p5.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script defer src="face-api.min.js"></script>
@@ -16,21 +17,24 @@
       display: flex;
       justify-content: left;
       align-items: left;
-      flex-direction: left
+      flex-direction: Center
     }
 
     canvas {
       position: absolute;
       top: 0;
       left: 0;
+      z-index: +1
     }
   </style>
 </head>
 <body>
+  <script src="sketch.js"></script>
   <div style="position: relative" class="margin">
     <video width="640" height="480" onplay="onPlay(this)" id="inputVideo" autoplay muted></video>
     <canvas width="640" height= "480" id="overlay">
   </div> 
   <script defer src="script.js"></script>
+  
 </body>
 </html>
