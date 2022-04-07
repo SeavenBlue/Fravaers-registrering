@@ -15,7 +15,7 @@
       height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: left;
       flex-direction: column
     }
 
@@ -28,8 +28,8 @@
 </head>
 <body>
   <div style="position: relative" class="margin">
-    <video onplay="onPlay(this)" id="inputVideo" autoplay muted></video>
-    <canvas id="overlay">
+    <video width= "600" height="480" onplay="onPlay(this)" id="inputVideo" autoplay muted></video>
+    <canvas width="600" height= "480" id="overlay">
   </div> 
   <script defer src="script.js"></script>
 </body>

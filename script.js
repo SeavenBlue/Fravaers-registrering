@@ -2,8 +2,10 @@ const imageUpload = document.getElementById('imageUpload')
 
 Promise.all([
   // load the models
+  faceapi.loadSsdMobilenetv1Model('/models'),
   faceapi.loadMtcnnModel('/models/'),
-   faceapi.loadFaceRecognitionModel('/models/')
+   faceapi.loadFaceRecognitionModel('/models/'),
+   faceapi.loadFaceLandmarkModel("/models/")
 ]).then(startVid())
 
 
@@ -23,7 +25,7 @@ async function startVid() {
 
 
 
-async function onPlay(){
+async function onPlay(videoEl){
    
   const mtcnnForwardParams = {
     // number of scaled versions of the input image passed through the CNN
@@ -38,10 +40,17 @@ async function onPlay(){
     scoreThresholds: [0.6, 0.7, 0.7],
     // mininum face size to expect, the higher the faster processing will be,
     // but smaller faces won't be detected
-    minFaceSize: 200
+    minFaceSize: 100
   }
-  const mtcnnResults = await faceapi.mtcnn(document.getElementById('inputVideo'), mtcnnForwardParams)
 
+
+  const mtcnnResults = await faceapi.mtcnn(document.getElementById('inputVideo'), onPlay.mtcnnForwardParams)
+
+
+
+
+
+  
 
 
 const options = new faceapi.MtcnnOptions(mtcnnForwardParams)
@@ -49,6 +58,57 @@ const input = document.getElementById('inputVideo')
 const fullFaceDescriptions = await faceapi.detectAllFaces(input, options).withFaceLandmarks().withFaceDescriptors()
 
 
+
+
+
+
+
+
+
+
+const labels = ['Gustav', 'Thomas']
+
+const labeledFaceDescriptors = await Promise.all(
+  labels.map(async label => {
+    for(let i = 1; i <= 10; i++){
+    // fetch image data from urls and convert blob to HTMLImage element
+   
+    const img = await faceapi.fetchImage(`/labeled_images/${label}/`+i+`.jpg`)
+    
+    // detect the face with the highest score in the image and compute it's landmarks and face descriptor
+    const fullFaceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
+    
+    if (!fullFaceDescription) {
+      throw new Error(`no faces detected for ${label}`)
+    }
+    
+    const faceDescriptors = [fullFaceDescription.descriptor]
+    return new faceapi.LabeledFaceDescriptors(label, faceDescriptors)
+  }
+  })
+)
+
+
+// 0.6 is a good distance threshold value to judge
+// whether the descriptors match or not
+const maxDescriptorDistance = 0.6
+const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, maxDescriptorDistance)
+
+const results = fullFaceDescriptions.map(fd => faceMatcher.findBestMatch(fd.descriptor))
+
+var canvas = document.getElementById('overlay');
+var context = canvas.getContext('2d');
+context.clearRect(0, 0, canvas.width, canvas.height);
+
+results.forEach((bestMatch, i) => {
+  const box = fullFaceDescriptions[i].detection.box
+  const text = bestMatch.toString()
+  const drawBox = new faceapi.draw.DrawBox(box, { label: text })
+  
+  drawBox.draw("overlay")
+})
+
+setTimeout(() => onPlay(videoEl)) 
   }
 
  
