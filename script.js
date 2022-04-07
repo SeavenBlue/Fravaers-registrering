@@ -40,7 +40,7 @@ async function onPlay(videoEl){
     scoreThresholds: [0.6, 0.7, 0.7],
     // mininum face size to expect, the higher the faster processing will be,
     // but smaller faces won't be detected
-    minFaceSize: 100
+    minFaceSize: 50
   }
 
 
@@ -55,11 +55,14 @@ async function onPlay(videoEl){
 
 const options = new faceapi.MtcnnOptions(mtcnnForwardParams)
 const input = document.getElementById('inputVideo')
+
 const fullFaceDescriptions = await faceapi.detectAllFaces(input, options).withFaceLandmarks().withFaceDescriptors()
 
 
+if(fullFaceDescriptions[0] !== undefined){
+frames.push(VidCapture.get(fullFaceDescriptions[0].alignedRect._box.topLeft._x,fullFaceDescriptions[0].alignedRect._box.topLeft._y,fullFaceDescriptions[0].alignedRect._box._width,fullFaceDescriptions[0].alignedRect._box._height))
 
-
+}
 
 
 
@@ -104,10 +107,8 @@ results.forEach((bestMatch, i) => {
   const box = fullFaceDescriptions[i].detection.box
   const text = bestMatch.toString()
   const drawBox = new faceapi.draw.DrawBox(box, { label: text })
-  console.log(text)
   drawBox.draw("overlay")
 })
-
 setTimeout(() => onPlay(videoEl)) 
   }
 
