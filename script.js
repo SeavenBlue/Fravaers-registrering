@@ -56,12 +56,11 @@ async function onPlay(videoEl){
 const options = new faceapi.MtcnnOptions(mtcnnForwardParams)
 const input = document.getElementById('inputVideo')
 
+
 const fullFaceDescriptions = await faceapi.detectAllFaces(input, options).withFaceLandmarks().withFaceDescriptors()
 
-
 if(fullFaceDescriptions[0] !== undefined){
-frames.push(VidCapture.get(fullFaceDescriptions[0].alignedRect._box.topLeft._x,fullFaceDescriptions[0].alignedRect._box.topLeft._y,fullFaceDescriptions[0].alignedRect._box._width,fullFaceDescriptions[0].alignedRect._box._height))
-
+frameholder =VidCapture.get(0,0,640,480)
 }
 
 
@@ -102,13 +101,17 @@ const results = fullFaceDescriptions.map(fd => faceMatcher.findBestMatch(fd.desc
 var canvas = document.getElementById('overlay');
 var context = canvas.getContext('2d');
 context.clearRect(0, 0, canvas.width, canvas.height);
-
+faceholder = [];
 results.forEach((bestMatch, i) => {
   const box = fullFaceDescriptions[i].detection.box
   const text = bestMatch.toString()
+  faceholder.push([text,frameholder.get(box._x,box._y,box._width,box._height)])
   const drawBox = new faceapi.draw.DrawBox(box, { label: text })
   drawBox.draw("overlay")
 })
+if(faceholder[0]){
+labelsToText.push(faceholder)
+}
 setTimeout(() => onPlay(videoEl)) 
   }
 

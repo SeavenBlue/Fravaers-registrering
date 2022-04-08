@@ -1,6 +1,7 @@
 var P5Canvas;
 var sidstSete;
 var frames =[];
+var labelsToText =[];
 var VidCapture;
 
 function setup() {
@@ -32,7 +33,7 @@ function draw() {
   strokeWeight(5)
   rect(0,0,640,480)
 
-sidstSete.show()
+sidstSete.update()
 
 
 
