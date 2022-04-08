@@ -16,7 +16,7 @@ image(frames[frames.length-1],20,502.5,height-520,height-520)
 fill(0)
 textAlign(LEFT,CENTER)
 textSize(15)    
-text(onPlay().text,height-500,502.5)
+text("test",height-500,502.5)
 
 
 }}
