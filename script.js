@@ -40,7 +40,7 @@ async function onPlay(videoEl){
     scoreThresholds: [0.6, 0.7, 0.7],
     // mininum face size to expect, the higher the faster processing will be,
     // but smaller faces won't be detected
-    minFaceSize: 50
+    minFaceSize: 30
   }
 
 
@@ -63,12 +63,7 @@ if(fullFaceDescriptions[0] !== undefined){
 frameholder =VidCapture.get(0,0,640,480)
 }
 
-
-
-
-
-
-const labels = ['Gustav', 'Thomas']
+const labels = ['Daniel','Gustav','Julie','Lasse','Louise','Marcus','Markus','Mathias','Thomas']
 
 const labeledFaceDescriptors = await Promise.all(
   labels.map(async label => {
@@ -89,6 +84,7 @@ const labeledFaceDescriptors = await Promise.all(
   }
   })
 )
+
 
 
 // 0.6 is a good distance threshold value to judge
