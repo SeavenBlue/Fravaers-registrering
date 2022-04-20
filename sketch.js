@@ -3,12 +3,16 @@ var sidstSete;
 var frames =[];
 var labelsToText =[];
 var VidCapture;
+var elevLister;
+var elever;
+
 
 function setup() {
   P5Canvas = createCanvas(windowWidth-1, windowHeight-1);
   P5Canvas.position(0,0)
   P5Canvas.style("z-index","-1")
-  sidstSete = new sidsteElev()
+  sidstSete = new sidsteElev;
+  elevLister = new ElevLister;
 
 
 
@@ -34,6 +38,7 @@ function draw() {
   rect(0,0,640,480)
 
 sidstSete.update()
+elevLister.update()
 
 
 

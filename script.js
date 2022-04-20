@@ -76,7 +76,7 @@ const labeledFaceDescriptors = await Promise.all(
     const fullFaceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
     
     if (!fullFaceDescription) {
-      throw new Error(`no faces detected for ${label}`)
+      throw new Error(`no faces detected for ${label} at `+i)
     }
     
     const faceDescriptors = [fullFaceDescription.descriptor]
@@ -102,7 +102,7 @@ results.forEach((bestMatch, i) => {
   const box = fullFaceDescriptions[i].detection.box
   const text = bestMatch.toString()
   faceholder.push([text,frameholder.get(box._x,box._y,box._width,box._height)])
-  const drawBox = new faceapi.draw.DrawBox(box, { label: text })
+  const drawBox = new faceapi.draw.DrawBox(box, { label: text.replace(/[^a-zA-Z]/g,"") })
   drawBox.draw("overlay")
 })
 if(faceholder[0]){

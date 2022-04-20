@@ -10,8 +10,7 @@ this.Louise = [];
 this.Lasse = [];
 this.Mathias = [];
 
-
-this.ShouldShow =[];
+this.ShouldShow = getItem('elever');
 this.timeSorter;
 
 
@@ -82,28 +81,38 @@ else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "
 
 
 this.ShouldShow = [];
-this.ShouldShow.push(this.Gustav,this.Thomas,this.Markus,this.Marcus,this.Daniel,this.Lasse,this.Louise,this.Mathias,this.Julie)
+this.ShouldShow.push(this.Daniel,this.Gustav,this.Julie,this.Lasse,this.Louise,this.Marcus,this.Markus,this.Mathias,this.Thomas)
 
 for(let i = 0; i < this.ShouldShow.length; i++){ 
-   console.log("length:"+this.ShouldShow.length)
-   console.log("type of:",this.ShouldShow[i],typeof this.ShouldShow[i])
 if(this.ShouldShow[i].length < 1){
-    console.log("before splice:",this.ShouldShow)
     this.ShouldShow.splice(i,1)
     i--
-   console.log("after splice:",this.ShouldShow)
 }
 }
+elever = this.ShouldShow;
+storeItem('elever',elever)
+if(this.ShouldShow.length > 4){
+this.tempArray = []
+for(let i = 0; i < this.ShouldShow.length;i++){
+this.tempArray.push(this.ShouldShow[i][0][2])
+
+}
+
+this.tempArray = this.tempArray.sort(function(a, b){return b - a})
+
+
+for(let i = 0; i < this.ShouldShow.length;i++){
+    console.log(this.ShouldShow[i][0][2],this.tempArray[3])
+if(this.ShouldShow[i][0][2] < this.tempArray[3]){
+this.ShouldShow.splice(i,1)
+i--
+
+}   
+}
 
 
 
-
-
-
-
-
-
-
+}
 
 
 
