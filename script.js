@@ -1,5 +1,6 @@
 const imageUpload = document.getElementById('imageUpload')
-
+var runOnce = 0;
+console.log("Loading models...")
 Promise.all([
   // load the models
   faceapi.loadSsdMobilenetv1Model('/models'),
@@ -12,6 +13,8 @@ Promise.all([
 
 
 async function startVid() {
+  console.log("")
+  console.log("Starting live video...")
   // try to access users webcam and stream the images
   // to the video element
   const videoEl = document.getElementById('inputVideo')
@@ -26,7 +29,10 @@ async function startVid() {
 
 
 async function onPlay(videoEl){
-   
+  if(runOnce === 0){
+  console.log("video live")
+  if(millis() > 10000){runOnce++}
+  }
   const mtcnnForwardParams = {
     // number of scaled versions of the input image passed through the CNN
     // of the first stage, lower numbers will result in lower inference time,
@@ -40,7 +46,7 @@ async function onPlay(videoEl){
     scoreThresholds: [0.6, 0.7, 0.7],
     // mininum face size to expect, the higher the faster processing will be,
     // but smaller faces won't be detected
-    minFaceSize: 30
+    minFaceSize: 40
   }
 
 
@@ -61,7 +67,8 @@ const fullFaceDescriptions = await faceapi.detectAllFaces(input, options).withFa
 
 if(fullFaceDescriptions[0] !== undefined){
 frameholder =VidCapture.get(0,0,640,480)
-}
+
+
 
 const labels = ['Daniel','Gustav','Julie','Lasse','Louise','Marcus','Markus','Mathias','Thomas']
 
@@ -84,7 +91,11 @@ const labeledFaceDescriptors = await Promise.all(
   }
   })
 )
-
+if(runOnce === 0){
+  console.log("")
+console.log("finished loading models")
+runOnce++
+}
 
 
 // 0.6 is a good distance threshold value to judge
@@ -107,9 +118,9 @@ results.forEach((bestMatch, i) => {
 })
 if(faceholder[0]){
 labelsToText.push(faceholder)
-}
+}}
 setTimeout(() => onPlay(videoEl)) 
-  }
+  
+}
 
- 
 

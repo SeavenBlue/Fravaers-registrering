@@ -6,6 +6,7 @@ var VidCapture;
 var elevLister;
 var elever;
 var popUp = false;
+var skema;
 
 var DanielIMG;
 var GustavIMG;
@@ -27,6 +28,8 @@ var MarkusInf = [];
 var MathiasInf = [];
 var ThomasInf = [];
 
+var minuteHolder;
+var modul;
 
 function preload(){
 
@@ -55,7 +58,7 @@ function setup() {
   P5Canvas.style("z-index","-1")
   sidstSete = new sidsteElev;
   elevLister = new ElevLister;
-
+  skema = new Skema;
 
 
 
@@ -132,6 +135,59 @@ if(ThomasInf[0] === null || ThomasInf[0] ===undefined){ ThomasInf.splice(0,1,fal
   MathiasInf.push("Mathias")
   ThomasInf.push("Thomas")
 
+  DanielInf.push([])
+  GustavInf.push([]) 
+  JulieInf.push([])
+  LasseInf.push([])
+  LouiseInf.push([])
+  MarcusInf.push([])
+  MarkusInf.push([])
+  MathiasInf.push([])
+  ThomasInf.push([])
+
+  DanielInf.push(getItem("DanielTotalFravær"))
+  GustavInf.push(getItem("GustavTotalFravær")) 
+  JulieInf.push(getItem("JulieTotalFravær"))
+  LasseInf.push(getItem("LasseTotalFravær"))
+  LouiseInf.push(getItem("LouiseTotalFravær"))
+  MarcusInf.push(getItem("MarcusTotalFravær"))
+  MarkusInf.push(getItem("MarkusTotalFravær"))
+  MathiasInf.push(getItem("MathiasTotalFravær"))
+  ThomasInf.push(getItem("ThomasTotalFravær"))
+
+
+
+  if(DanielInf[5] === null || DanielInf[5] === undefined){ DanielInf.splice(5,1,NaN)}
+  if(GustavInf[5] ===null || GustavInf[5] ===undefined){ GustavInf.splice(5,1,NaN)}
+  if(JulieInf[5] === null ||JulieInf[5] ===undefined){ JulieInf.splice(5,1,NaN)}
+  if(LasseInf[5] === null || LasseInf[5] ===undefined){ LasseInf.splice(5,1,NaN)}
+  if(LouiseInf[5] ===null ||LouiseInf[5] ===undefined){ LouiseInf.splice(5,1,NaN)}
+  if(MarcusInf[5] === null || MarcusInf[5] ===undefined){ MarcusInf.splice(5,1,NaN)}
+  if(MarkusInf[5] === null || MarkusInf[5] ===undefined){ MarkusInf.splice(5,1,NaN)}
+  if(MathiasInf[5] === null || MathiasInf[5] ===undefined){ MathiasInf.splice(5,1,NaN)}
+  if(ThomasInf[5] === null || ThomasInf[5] ===undefined){ ThomasInf.splice(5,1,NaN)}
+
+  DanielInf.push(getItem("DanielFravær"))
+  GustavInf.push(getItem("GustavFravær")) 
+  JulieInf.push(getItem("JulieFravær"))
+  LasseInf.push(getItem("LasseFravær"))
+  LouiseInf.push(getItem("LouiseFravær"))
+  MarcusInf.push(getItem("MarcusFravær"))
+  MarkusInf.push(getItem("MarkusFravær"))
+  MathiasInf.push(getItem("MathiasFravær"))
+  ThomasInf.push(getItem("ThomasFravær"))
+
+
+
+  if(DanielInf[6] === null || DanielInf[6] === undefined){ DanielInf.splice(6,1,NaN)}
+  if(GustavInf[6] ===null || GustavInf[6] ===undefined){ GustavInf.splice(6,1,NaN)}
+  if(JulieInf[6] === null ||JulieInf[6] ===undefined){ JulieInf.splice(6,1,NaN)}
+  if(LasseInf[6] === null || LasseInf[6] ===undefined){ LasseInf.splice(6,1,NaN)}
+  if(LouiseInf[6] ===null ||LouiseInf[6] ===undefined){ LouiseInf.splice(6,1,NaN)}
+  if(MarcusInf[6] === null || MarcusInf[6] ===undefined){ MarcusInf.splice(6,1,NaN)}
+  if(MarkusInf[6] === null || MarkusInf[6] ===undefined){ MarkusInf.splice(6,1,NaN)}
+  if(MathiasInf[6] === null || MathiasInf[6] ===undefined){ MathiasInf.splice(6,1,NaN)}
+  if(ThomasInf[6] === null || ThomasInf[6] ===undefined){ ThomasInf.splice(6,1,NaN)}
 
 
 
@@ -152,6 +208,7 @@ if(ThomasInf[0] === null || ThomasInf[0] ===undefined){ ThomasInf.splice(0,1,fal
 }
 
 function draw() {
+
   if(popUp === false){
   background(226,228,255)}
 
@@ -161,17 +218,31 @@ function draw() {
 
 sidstSete.update()
 elevLister.update()
+skema.update()
 
 noStroke()
 fill(226,228,255)
-rect(640+312.5+7.5-100,50,200,100)
+rect(640+312.5+7.5-310,0,630-5,205)
 fill(0)
 textAlign(CENTER,CENTER)
 
 textSize(30)
-text(hour()+":"+minute()+":"+second(),640+312.5+7.5,100)
+if(minute() < 10){ minuteHolder = "0"+minute()}else[minuteHolder = minute()]
+text(hour()+":"+minuteHolder,640+312.5+7.5,100)
 
-stroke(0)
+
+
+if(runOnce === 0){
+fill(226,228,255)
+rect(640+312.5+7.5-300,0,600,205)
+  textAlign(CENTER,CENTER)
+  fill(0)
+  noStroke()
+  textSize(40)
+  text("Loader...",640+312.5+7.5,100)
+}
+  
+  stroke(0)
 }
 
 

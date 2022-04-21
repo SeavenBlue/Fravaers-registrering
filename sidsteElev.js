@@ -137,7 +137,6 @@ this.tempArray = this.tempArray.sort(function(a, b){return b - a})
 
 
 for(let i = 0; i < this.ShouldShow.length;i++){
-    console.log(this.ShouldShow[i][0][2],this.tempArray[3])
 if(this.ShouldShow[i][0][2] < this.tempArray[3]){
 this.ShouldShow.splice(i,1)
 i--
