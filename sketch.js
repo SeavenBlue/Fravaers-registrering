@@ -31,6 +31,8 @@ var ThomasInf = [];
 var minuteHolder;
 var modul;
 
+var førsteTime;
+
 function preload(){
 
 
@@ -157,15 +159,15 @@ if(ThomasInf[0] === null || ThomasInf[0] ===undefined){ ThomasInf.splice(0,1,fal
 
 
 
-  if(DanielInf[5] === null || DanielInf[5] === undefined){ DanielInf.splice(5,1,NaN)}
-  if(GustavInf[5] ===null || GustavInf[5] ===undefined){ GustavInf.splice(5,1,NaN)}
-  if(JulieInf[5] === null ||JulieInf[5] ===undefined){ JulieInf.splice(5,1,NaN)}
-  if(LasseInf[5] === null || LasseInf[5] ===undefined){ LasseInf.splice(5,1,NaN)}
-  if(LouiseInf[5] ===null ||LouiseInf[5] ===undefined){ LouiseInf.splice(5,1,NaN)}
-  if(MarcusInf[5] === null || MarcusInf[5] ===undefined){ MarcusInf.splice(5,1,NaN)}
-  if(MarkusInf[5] === null || MarkusInf[5] ===undefined){ MarkusInf.splice(5,1,NaN)}
-  if(MathiasInf[5] === null || MathiasInf[5] ===undefined){ MathiasInf.splice(5,1,NaN)}
-  if(ThomasInf[5] === null || ThomasInf[5] ===undefined){ ThomasInf.splice(5,1,NaN)}
+  if(DanielInf[5] === NaN || DanielInf[5] === undefined){ DanielInf.splice(5,1,0)}
+  if(GustavInf[5] ===NaN || GustavInf[5] ===undefined){ GustavInf.splice(5,1,0)}
+  if(JulieInf[5] === NaN ||JulieInf[5] ===undefined){ JulieInf.splice(5,1,0)}
+  if(LasseInf[5] === NaN || LasseInf[5] ===undefined){ LasseInf.splice(5,1,0)}
+  if(LouiseInf[5] ===NaN ||LouiseInf[5] ===undefined){ LouiseInf.splice(5,1,0)}
+  if(MarcusInf[5] === NaN || MarcusInf[5] ===undefined){ MarcusInf.splice(5,1,0)}
+  if(MarkusInf[5] === NaN || MarkusInf[5] ===undefined){ MarkusInf.splice(5,1,0)}
+  if(MathiasInf[5] === NaN || MathiasInf[5] ===undefined){ MathiasInf.splice(5,1,0)}
+  if(ThomasInf[5] === NaN || ThomasInf[5] ===undefined){ ThomasInf.splice(5,1,0)}
 
   DanielInf.push(getItem("DanielFravær"))
   GustavInf.push(getItem("GustavFravær")) 
@@ -179,15 +181,15 @@ if(ThomasInf[0] === null || ThomasInf[0] ===undefined){ ThomasInf.splice(0,1,fal
 
 
 
-  if(DanielInf[6] === null || DanielInf[6] === undefined){ DanielInf.splice(6,1,NaN)}
-  if(GustavInf[6] ===null || GustavInf[6] ===undefined){ GustavInf.splice(6,1,NaN)}
-  if(JulieInf[6] === null ||JulieInf[6] ===undefined){ JulieInf.splice(6,1,NaN)}
-  if(LasseInf[6] === null || LasseInf[6] ===undefined){ LasseInf.splice(6,1,NaN)}
-  if(LouiseInf[6] ===null ||LouiseInf[6] ===undefined){ LouiseInf.splice(6,1,NaN)}
-  if(MarcusInf[6] === null || MarcusInf[6] ===undefined){ MarcusInf.splice(6,1,NaN)}
-  if(MarkusInf[6] === null || MarkusInf[6] ===undefined){ MarkusInf.splice(6,1,NaN)}
-  if(MathiasInf[6] === null || MathiasInf[6] ===undefined){ MathiasInf.splice(6,1,NaN)}
-  if(ThomasInf[6] === null || ThomasInf[6] ===undefined){ ThomasInf.splice(6,1,NaN)}
+  if(DanielInf[6] === NaN || DanielInf[6] === undefined){ DanielInf.splice(6,1,0)}
+  if(GustavInf[6] ===NaN || GustavInf[6] ===undefined){ GustavInf.splice(6,1,0)}
+  if(JulieInf[6] === NaN ||JulieInf[6] ===undefined){ JulieInf.splice(6,1,0)}
+  if(LasseInf[6] === NaN || LasseInf[6] ===undefined){ LasseInf.splice(6,1,0)}
+  if(LouiseInf[6] ===NaN ||LouiseInf[6] ===undefined){ LouiseInf.splice(6,1,0)}
+  if(MarcusInf[6] === NaN || MarcusInf[6] ===undefined){ MarcusInf.splice(6,1,0)}
+  if(MarkusInf[6] === NaN || MarkusInf[6] ===undefined){ MarkusInf.splice(6,1,0)}
+  if(MathiasInf[6] === NaN || MathiasInf[6] ===undefined){ MathiasInf.splice(6,1,0)}
+  if(ThomasInf[6] === NaN || ThomasInf[6] ===undefined){ ThomasInf.splice(6,1,0)}
 
 
 

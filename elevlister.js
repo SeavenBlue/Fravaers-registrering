@@ -6,6 +6,7 @@ this.person;
 this.scroll = 0;
 this.scroll2 = 0;
 this.timer = 0;
+this.minuteTimer = minute();
 }
 
 
@@ -58,8 +59,8 @@ for(let i = 0; i < this.fraværende.length; i++){
     noStroke()
     fill(0)
     textSize(10)
-    text("Totalt fravær: "+this.fraværende[i][5],640+12.5+90,325+70*i+this.scroll2)
-    text("Fravær idag: "+this.fraværende[i][6],640+12.5+90,335+70*i+this.scroll2)
+    text("Fravær for idag: "+this.fraværende[i][5],640+12.5+90,325+70*i+this.scroll2)
+    text("Fravær for modul: "+this.fraværende[i][6],640+12.5+90,335+70*i+this.scroll2)
 
 }
 
@@ -103,7 +104,11 @@ for(let i = 0; i < this.tilstedeværende.length; i++){
 
       
     } 
-
+    noStroke()
+    fill(0)
+    textSize(10)
+    text("Fravær for idag: "+this.fraværende[i][5],640+12.5+90+312.5,325+70*i+this.scroll2)
+    text("Fravær for modul: "+this.fraværende[i][6],640+12.5+90+312.5,335+70*i+this.scroll2)
     
 }
 noStroke()
@@ -142,7 +147,7 @@ rect(660-7.5,200+7.5,600+12.5,500-1.5)
 textAlign(CENTER,CENTER)
 noStroke()
 fill(0)
-text("Elev: "+this.person[3],660-7.5+(600+12.5)/2,240)
+text(this.person[3],660-7.5+(600+12.5)/2,240)
 image(this.person[1],660-7.5+(600+12.5)/2-50,300-50,100,100)
 
 if(this.person[4]){
@@ -183,7 +188,10 @@ if(i >= 4){i = this.person[4].length}
 
 }}}
 
-
+noStroke()
+textSize(15)
+text("Fravær for modul: "+this.person[5],662.5,400)
+text("Fravær for idag: "+this.person[6],662.5,420)
 
 
 
@@ -299,7 +307,23 @@ if(this.scroll > 0){
     this.scroll = 0
 }
 
+for(let i = 0; i < 6; i++){
+if(this.minuteTimer < minute() && hour()*60+minute() > skema.moduleTimer2[i][0] && hour()*60+minute() < skema.moduleTimer2[i][1] ){
+    console.log("giver fravær")
+if(DanielInf[0]=== false){DanielInf[5]++}
+if(GustavInf[0]=== false){GustavInf[5]++}
+if(JulieInf[0]=== false){JulieInf[5]++}
+if(LasseInf[0]=== false){LasseInf[5]++}
+if(LouiseInf[0]=== false){LouiseInf[5]++}
+if(MarcusInf[0]=== false){MarcusInf[5]++}
+if(MarkusInf[0]=== false){MarkusInf[5]++}
+if(MathiasInf[0]=== false){MathiasInf[5]++}
+if(ThomasInf[0]=== false){ThomasInf[5]++}
 
+
+this.minuteTimer++
+}
+}
 
 
 

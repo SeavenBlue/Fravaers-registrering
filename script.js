@@ -1,5 +1,7 @@
 const imageUpload = document.getElementById('imageUpload')
 var runOnce = 0;
+
+
 console.log("Loading models...")
 Promise.all([
   // load the models

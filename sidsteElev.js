@@ -49,6 +49,20 @@ GustavInf[2]++
 GustavInf[0] = true
 if(GustavInf[4] === undefined){GustavInf.push([this.Gustav[0][0]])}else{
 GustavInf[4].push(this.Gustav[0][0])}
+
+//kopier til andre elever hvis det virker :
+for(let i = 0; i < 6; i++){
+if(i === 0){
+if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+    GustavInf.splice(7,1,skema.moduleTimer2[i][1])
+}}
+else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+GustavInf.splice(7,1,skema.moduleTimer2[i][1])
+
+}}
+// slut på kopiering, Husk at skifte navn
+
+
 }
 else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "Thomas"){
     this.Thomas.splice(0,this.Thomas.length,[labelsToText[labelsToText.length-1][i][1],labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,""),millis()])
