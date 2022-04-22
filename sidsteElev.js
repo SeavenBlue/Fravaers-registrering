@@ -46,22 +46,21 @@ if(labelsToText[labelsToText.length-1][i]){
 if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "Gustav"){
     this.Gustav.splice(0,this.Gustav.length,[labelsToText[labelsToText.length-1][i][1],labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,""),millis()])
 GustavInf[2]++ 
-GustavInf[0] = true
 if(GustavInf[4] === undefined){GustavInf.push([this.Gustav[0][0]])}else{
 GustavInf[4].push(this.Gustav[0][0])}
 
-//kopier til andre elever hvis det virker :
+
 for(let i = 0; i < 6; i++){
 if(i === 0){
 if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
     GustavInf.splice(7,1,skema.moduleTimer2[i][1])
+    
 }}
 else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
 GustavInf.splice(7,1,skema.moduleTimer2[i][1])
 
 }}
-// slut på kopiering, Husk at skifte navn
-
+GustavInf[0] = true
 
 }
 else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "Thomas"){
@@ -70,6 +69,16 @@ else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "
     ThomasInf[0] = true
     if(ThomasInf[4] === undefined){ThomasInf.push([this.Thomas[0][0]])}else{
         ThomasInf[4].push(this.Thomas[0][0])}
+        for(let i = 0; i < 6; i++){
+            if(i === 0){
+            if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+                ThomasInf.splice(7,1,skema.moduleTimer2[i][1])
+                
+            }}
+            else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+            ThomasInf.splice(7,1,skema.moduleTimer2[i][1])
+            
+            }}
 }
 else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "Markus"){
     this.Markus.splice(0,this.Markus.length,[labelsToText[labelsToText.length-1][i][1],labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,""),millis()])
@@ -77,6 +86,16 @@ else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "
     MarkusInf[0] = true
     if(MarkusInf[4] === undefined){MarkusInf.push([this.Markus[0][0]])}else{
         MarkusInf[4].push(this.Markus[0][0])}
+        for(let i = 0; i < 6; i++){
+            if(i === 0){
+            if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+                MarkusInf.splice(7,1,skema.moduleTimer2[i][1])
+                
+            }}
+            else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+            MarkusInf.splice(7,1,skema.moduleTimer2[i][1])
+            
+            }}
 }
 
 else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "Marcus"){
@@ -85,6 +104,16 @@ else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "
     MarcusInf[0] = true
     if(MarcusInf[4] === undefined){MarcusInf.push([this.Marcus[0][0]])}else{
         MarcusInf[4].push(this.Marcus[0][0])}
+        for(let i = 0; i < 6; i++){
+            if(i === 0){
+            if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+               MarcusInf.splice(7,1,skema.moduleTimer2[i][1])
+                
+            }}
+            else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+            MarcusInf.splice(7,1,skema.moduleTimer2[i][1])
+            
+            }}
 }
 else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "Daniel"){
     this.Daniel.splice(0,this.Daniel.length,[labelsToText[labelsToText.length-1][i][1],labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,""),millis()])
@@ -92,6 +121,16 @@ else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "
     DanielInf[0] = true
     if(DanielInf[4] === undefined){DanielInf.push([this.Daniel[0][0]])}else{
         DanielInf[4].push(this.Daniel[0][0])}
+        for(let i = 0; i < 6; i++){
+            if(i === 0){
+            if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+                DanielInf.splice(7,1,skema.moduleTimer2[i][1])
+                
+            }}
+            else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+            DanielInf.splice(7,1,skema.moduleTimer2[i][1])
+            
+            }}
 }
 else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "Lasse"){
     this.Lasse.splice(0,this.Lasse.length,[labelsToText[labelsToText.length-1][i][1],labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,""),millis()])
@@ -99,6 +138,16 @@ else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "
    LasseInf[0] = true
    if(LasseInf[4] === undefined){LasseInf.push([this.Lasse[0][0]])}else{
     LasseInf[4].push(this.Lasse[0][0])}
+    for(let i = 0; i < 6; i++){
+        if(i === 0){
+        if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+            LasseInf.splice(7,1,skema.moduleTimer2[i][1])
+            
+        }}
+        else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+        LasseInf.splice(7,1,skema.moduleTimer2[i][1])
+        
+        }}
 }
 else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "Mathias"){
     this.Mathias.splice(0,this.Mathias.length,[labelsToText[labelsToText.length-1][i][1],labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,""),millis()])
@@ -106,6 +155,16 @@ else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "
     MathiasInf[0] = true
     if(MathiasInf[4] === undefined){MathiasInf.push([this.Mathias[0][0]])}else{
         MathiasInf[4].push(this.Mathias[0][0])}
+        for(let i = 0; i < 6; i++){
+            if(i === 0){
+            if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+                MathiasInf.splice(7,1,skema.moduleTimer2[i][1])
+                
+            }}
+            else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+            MathiasInf.splice(7,1,skema.moduleTimer2[i][1])
+            
+            }}
 }
 else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "Louise"){
     this.Louise.splice(0,this.Louise.length,[labelsToText[labelsToText.length-1][i][1],labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,""),millis()])
@@ -113,6 +172,16 @@ else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "
    LouiseInf[0] = true
    if(LouiseInf[4] === undefined){LouiseInf.push([this.Louise[0][0]])}else{
     LouiseInf[4].push(this.Louise[0][0])}
+    for(let i = 0; i < 6; i++){
+        if(i === 0){
+        if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+            LouiseInf.splice(7,1,skema.moduleTimer2[i][1])
+            
+        }}
+        else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+        LouiseInf.splice(7,1,skema.moduleTimer2[i][1])
+        
+        }}
 }
 else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "Julie"){
     this.Julie.splice(0,this.Julie.length,[labelsToText[labelsToText.length-1][i][1],labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,""),millis()])
@@ -120,6 +189,16 @@ else if(labelsToText[labelsToText.length-1][i][0].replace(/[^a-zA-Z]/g,"") === "
    JulieInf[0] = true
    if(JulieInf[4] === undefined){JulieInf.push([this.Julie[0][0]])}else{
     JulieInf[4].push(this.Julie[0][0])}
+    for(let i = 0; i < 6; i++){
+        if(i === 0){
+        if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+            JulieInf.splice(7,1,skema.moduleTimer2[i][1])
+            
+        }}
+        else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+        JulieInf.splice(7,1,skema.moduleTimer2[i][1])
+        
+        }}
 }
 
 
@@ -162,8 +241,15 @@ i--
 
 }
 
-
-
+storeItem("DanielFriModul",DanielInf[7])
+storeItem("GustavFriModul",GustavInf[7])
+storeItem("JulieFriModul",JulieInf[7])
+storeItem("LasseFriModul",LasseInf[7])
+storeItem("LouiseFriModul",LouiseInf[7])
+storeItem("MarcusFriModul",MarcusInf[7])
+storeItem("MarkusFriModul",MarkusInf[7])
+storeItem("MathiasFriModul",MathiasInf[7])
+storeItem("ThomasFriModul",ThomasInf[7])
 
 
 

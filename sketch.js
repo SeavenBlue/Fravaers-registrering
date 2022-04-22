@@ -159,15 +159,15 @@ if(ThomasInf[0] === null || ThomasInf[0] ===undefined){ ThomasInf.splice(0,1,fal
 
 
 
-  if(DanielInf[5] === NaN || DanielInf[5] === undefined){ DanielInf.splice(5,1,0)}
-  if(GustavInf[5] ===NaN || GustavInf[5] ===undefined){ GustavInf.splice(5,1,0)}
-  if(JulieInf[5] === NaN ||JulieInf[5] ===undefined){ JulieInf.splice(5,1,0)}
-  if(LasseInf[5] === NaN || LasseInf[5] ===undefined){ LasseInf.splice(5,1,0)}
-  if(LouiseInf[5] ===NaN ||LouiseInf[5] ===undefined){ LouiseInf.splice(5,1,0)}
-  if(MarcusInf[5] === NaN || MarcusInf[5] ===undefined){ MarcusInf.splice(5,1,0)}
-  if(MarkusInf[5] === NaN || MarkusInf[5] ===undefined){ MarkusInf.splice(5,1,0)}
-  if(MathiasInf[5] === NaN || MathiasInf[5] ===undefined){ MathiasInf.splice(5,1,0)}
-  if(ThomasInf[5] === NaN || ThomasInf[5] ===undefined){ ThomasInf.splice(5,1,0)}
+  if(DanielInf[5] === NaN || DanielInf[5] === undefined){ DanielInf.splice(5,1,[])}
+  if(GustavInf[5] ===NaN || GustavInf[5] ===undefined){ GustavInf.splice(5,1,[])}
+  if(JulieInf[5] === NaN ||JulieInf[5] ===undefined){ JulieInf.splice(5,1,[])}
+  if(LasseInf[5] === NaN || LasseInf[5] ===undefined){ LasseInf.splice(5,1,[])}
+  if(LouiseInf[5] ===NaN ||LouiseInf[5] ===undefined){ LouiseInf.splice(5,1,[])}
+  if(MarcusInf[5] === NaN || MarcusInf[5] ===undefined){ MarcusInf.splice(5,1,[])}
+  if(MarkusInf[5] === NaN || MarkusInf[5] ===undefined){ MarkusInf.splice(5,1,[])}
+  if(MathiasInf[5] === NaN || MathiasInf[5] ===undefined){ MathiasInf.splice(5,1,[])}
+  if(ThomasInf[5] === NaN || ThomasInf[5] ===undefined){ ThomasInf.splice(5,1,[])}
 
   DanielInf.push(getItem("DanielFravær"))
   GustavInf.push(getItem("GustavFravær")) 
@@ -179,19 +179,44 @@ if(ThomasInf[0] === null || ThomasInf[0] ===undefined){ ThomasInf.splice(0,1,fal
   MathiasInf.push(getItem("MathiasFravær"))
   ThomasInf.push(getItem("ThomasFravær"))
 
+  DanielInf.splice(5,1,[])
+  DanielInf.splice(6,1,[])
+  GustavInf.splice(5,1,[])
+  GustavInf.splice(6,1,[])
+  JulieInf.splice(5,1,[])
+  JulieInf.splice(6,1,[])
+  LasseInf.splice(5,1,[])
+  LasseInf.splice(6,1,[])
+  LouiseInf.splice(5,1,[])
+  LouiseInf.splice(6,1,[])
+  MarcusInf.splice(5,1,[])
+  MarcusInf.splice(6,1,[])
+  MarkusInf.splice(5,1,[])
+  MarkusInf.splice(6,1,[])
+  MathiasInf.splice(5,1,[])
+  MathiasInf.splice(6,1,[])
+  ThomasInf.splice(5,1,[])
+  ThomasInf.splice(6,1,[])
 
+  if(DanielInf[6] === NaN || DanielInf[6] === undefined){ DanielInf.splice(6,1,[])}
+  if(GustavInf[6] ===NaN || GustavInf[6] ===undefined){ GustavInf.splice(6,1,[])}
+  if(JulieInf[6] === NaN ||JulieInf[6] ===undefined){ JulieInf.splice(6,1,[])}
+  if(LasseInf[6] === NaN || LasseInf[6] ===undefined){ LasseInf.splice(6,1,[])}
+  if(LouiseInf[6] ===NaN ||LouiseInf[6] ===undefined){ LouiseInf.splice(6,1,[])}
+  if(MarcusInf[6] === NaN || MarcusInf[6] ===undefined){ MarcusInf.splice(6,1,[])}
+  if(MarkusInf[6] === NaN || MarkusInf[6] ===undefined){ MarkusInf.splice(6,1,[])}
+  if(MathiasInf[6] === NaN || MathiasInf[6] ===undefined){ MathiasInf.splice(6,1,[])}
+  if(ThomasInf[6] === NaN || ThomasInf[6] ===undefined){ ThomasInf.splice(6,1,[])}
 
-  if(DanielInf[6] === NaN || DanielInf[6] === undefined){ DanielInf.splice(6,1,0)}
-  if(GustavInf[6] ===NaN || GustavInf[6] ===undefined){ GustavInf.splice(6,1,0)}
-  if(JulieInf[6] === NaN ||JulieInf[6] ===undefined){ JulieInf.splice(6,1,0)}
-  if(LasseInf[6] === NaN || LasseInf[6] ===undefined){ LasseInf.splice(6,1,0)}
-  if(LouiseInf[6] ===NaN ||LouiseInf[6] ===undefined){ LouiseInf.splice(6,1,0)}
-  if(MarcusInf[6] === NaN || MarcusInf[6] ===undefined){ MarcusInf.splice(6,1,0)}
-  if(MarkusInf[6] === NaN || MarkusInf[6] ===undefined){ MarkusInf.splice(6,1,0)}
-  if(MathiasInf[6] === NaN || MathiasInf[6] ===undefined){ MathiasInf.splice(6,1,0)}
-  if(ThomasInf[6] === NaN || ThomasInf[6] ===undefined){ ThomasInf.splice(6,1,0)}
-
-
+  DanielInf.push(getItem("DanielFriModul"))
+  GustavInf.push(getItem("GustavFriModul")) 
+  JulieInf.push(getItem("JulieFriModul"))
+  LasseInf.push(getItem("LasseFriModul"))
+  LouiseInf.push(getItem("LouiseFriModul"))
+  MarcusInf.push(getItem("MarcusFriModul"))
+  MarkusInf.push(getItem("MarkusFriModul"))
+  MathiasInf.push(getItem("MathiasFriModul"))
+  ThomasInf.push(getItem("ThomasFriModul"))
 
 
 

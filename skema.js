@@ -74,23 +74,48 @@ update(){
 
 
     for(let i = 0; i < 6; i ++){
-    if(hour()*60+minute() >= this.moduleTimer2[i][0] && hour()*60+minute()  < this.moduleTimer2[i][1] && Moduler[i] === "Der tages automatisk fravær"){
-    
+      
+    if(hour()*60+minute() >= this.moduleTimer2[i][0]-10 && hour()*60+minute()  < this.moduleTimer2[i][1] && Moduler[i] === "Der tages automatisk fravær"){
     DanielInf.splice(0,1,false)
+        if(DanielInf[7]){if(DanielInf[7] >= this.moduleTimer2[i][1]){
+    DanielInf.splice(0,1,true)
+        }}
     GustavInf.splice(0,1,false)
     if(GustavInf[7]){if(GustavInf[7] >= this.moduleTimer2[i][1]){
-        GustavInf.splice(0,1,true)
+    GustavInf.splice(0,1,true)
+    }}
+    JulieInf.splice(0,1,false)
+    if(JulieInf[7]){if(JulieInf[7] >= this.moduleTimer2[i][1]){
+    JulieInf.splice(0,1,true)
+    }}
+    LasseInf.splice(0,1,false)
+    if(LasseInf[7]){if(LasseInf[7] >= this.moduleTimer2[i][1]){
+    LasseInf.splice(0,1,true)
+    }}
+    LouiseInf.splice(0,1,false)
+    if(LouiseInf[7]){if(LouiseInf[7] >= this.moduleTimer2[i][1]){
+    LouiseInf.splice(0,1,false)
+    }}
+    MarcusInf.splice(0,1,false)
+    if(MarcusInf[7]){if(MarcusInf[7] >= this.moduleTimer2[i][1]){
+    MarcusInf.splice(0,1,true)
+    }}
+    MarkusInf.splice(0,1,false)
+    if(MarkusInf[7]){if(MarkusInf[7] >= this.moduleTimer2[i][1]){
+    MarkusInf.splice(0,1,true)
+    }}
+    MathiasInf.splice(0,1,false)
+    if(MathiasInf[7]){if(MathiasInf[7] >= this.moduleTimer2[i][1]){
+    MathiasInf.splice(0,1,true)
+    }}
+    ThomasInf.splice(0,1,false)
+    if(ThomasInf[7]){if(ThomasInf[7] >= this.moduleTimer2[i][1]){
+    ThomasInf.splice(0,1,true)
     }}
     
     
+   
     
-    JulieInf.splice(0,1,false)
-    LasseInf.splice(0,1,false)
-    LouiseInf.splice(0,1,false)
-    MarcusInf.splice(0,1,false)
-    MarkusInf.splice(0,1,false)
-    MathiasInf.splice(0,1,false)
-    ThomasInf.splice(0,1,false)
 
 
     }}

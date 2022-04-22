@@ -195,6 +195,12 @@ text("Fravær for idag: "+this.person[6],662.5,420)
 
 
 
+text("Sæt elev til tilstedeværende")
+text("fjern elevs fravær for modul")
+
+
+
+
 if(this.person[2] < 1 && this.timer < millis()){
     noFill()
     stroke(0)
@@ -322,8 +328,9 @@ if(ThomasInf[0]=== false){ThomasInf[5]++}
 
 
 this.minuteTimer++
-}
-}
+}}
+
+
 
 
 
