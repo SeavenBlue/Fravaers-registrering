@@ -7,6 +7,7 @@ this.scroll = 0;
 this.scroll2 = 0;
 this.timer = 0;
 this.minuteTimer = minute();
+this.additionalTimer = 0;
 }
 
 
@@ -51,6 +52,7 @@ for(let i = 0; i < this.fraværende.length; i++){
         
         console.log("click")
             this.person = this.fraværende[i]
+            this.additionalTimer = millis()+1000
         popUp = true;
 
 
@@ -59,9 +61,10 @@ for(let i = 0; i < this.fraværende.length; i++){
     noStroke()
     fill(0)
     textSize(10)
-    text("Fravær for idag: "+this.fraværende[i][5],640+12.5+90,325+70*i+this.scroll2)
-    text("Fravær for modul: "+this.fraværende[i][6],640+12.5+90,335+70*i+this.scroll2)
-
+  
+    text("Fravær for idag: "+this.fraværende[i][6],640+12.5+90,325+70*i+this.scroll2)
+    text("Fravær for modul: "+this.fraværende[i][5],640+12.5+90,335+70*i+this.scroll2)
+    
 }
 
 
@@ -99,6 +102,7 @@ for(let i = 0; i < this.tilstedeværende.length; i++){
         
         console.log("click")
             this.person = this.tilstedeværende[i]
+            this.additionalTimer = millis()+1000
         popUp = true;
 
 
@@ -107,8 +111,9 @@ for(let i = 0; i < this.tilstedeværende.length; i++){
     noStroke()
     fill(0)
     textSize(10)
-    text("Fravær for idag: "+this.fraværende[i][5],640+12.5+90+312.5,325+70*i+this.scroll2)
-    text("Fravær for modul: "+this.fraværende[i][6],640+12.5+90+312.5,335+70*i+this.scroll2)
+  
+    text("Fravær for idag: "+this.tilstedeværende[i][6],640+12.5+90+312.5,325+70*i+this.scroll)
+    text("Fravær for modul: "+this.tilstedeværende[i][5],640+12.5+90+312.5,335+70*i+this.scroll)
     
 }
 noStroke()
@@ -195,9 +200,79 @@ text("Fravær for idag: "+this.person[6],662.5,420)
 
 
 
-text("Sæt elev til tilstedeværende")
-text("fjern elevs fravær for modul")
+text("Sæt elev til tilstedeværende",662.5+450-40,400,100)
+noFill()
+strokeWeight(3)
+stroke(0)
+rect(662.5+450-10-40,400-15,150,50)
 
+if(mouseX > 662.5+450-10-40 && mouseX < 662.5+450-10+150-40 && mouseY > 400-15 && mouseY < 400-15+50 && mouseIsPressed === true && this.additionalTimer-500 < millis()){
+    if(this.person[0] === true){
+        for(let j = 0; j < this.tilstedeværende.length; j++){
+            if(this.person[3] === this.tilstedeværende[j][3]){
+
+                for(let i = 0; i < 6; i++){
+                    if(i === 0){
+                    if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+                if(this.tilstedeværende[j][3] === DanielInf[3]){popUp = false; DanielInf.splice(7,1,skema.moduleTimer2[i][1]); DanielInf.splice(5,1,"0%")}
+                if(this.tilstedeværende[j][3] === GustavInf[3]){popUp = false;GustavInf.splice(7,1,skema.moduleTimer2[i][1]); GustavInf.splice(5,1,"0%")}
+                if(this.tilstedeværende[j][3] === JulieInf[3]){popUp = false;JulieInf.splice(7,1,skema.moduleTimer2[i][1]); JulieInf.splice(5,1,"0%")}
+                if(this.tilstedeværende[j][3] === LasseInf[3]){popUp = false;LasseInf.splice(7,1,skema.moduleTimer2[i][1]); LasseInf.splice(5,1,"0%")}
+                if(this.tilstedeværende[j][3] === LouiseInf[3]){popUp = false;LouiseInf.splice(7,1,skema.moduleTimer2[i][1]); LouiseInf.splice(5,1,"0%")}
+                if(this.tilstedeværende[j][3] === MarcusInf[3]){popUp = false;MarcusInf.splice(7,1,skema.moduleTimer2[i][1]); MarcusInf.splice(5,1,"0%")}
+                if(this.tilstedeværende[j][3] === MarkusInf[3]){popUp = false;MarkusInf.splice(7,1,skema.moduleTimer2[i][1]); MarkusInf.splice(5,1,"0%")}
+                if(this.tilstedeværende[j][3] === MathiasInf[3]){popUp = false;MathiasInf.splice(7,1,skema.moduleTimer2[i][1]); MathiasInf.splice(5,1,"0%")}
+                if(this.tilstedeværende[j][3] === ThomasInf[3]){popUp = false;ThomasInf.splice(7,1,skema.moduleTimer2[i][1]); ThomasInf.splice(5,1,"0%")}
+                        
+                    }}
+                    else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+                        if(this.tilstedeværende[j][3] === DanielInf[3]){popUp = false; DanielInf.splice(7,1,skema.moduleTimer2[i][1]); DanielInf.splice(5,1,"0%")}
+                        if(this.tilstedeværende[j][3] === GustavInf[3]){popUp = false;GustavInf.splice(7,1,skema.moduleTimer2[i][1]); GustavInf.splice(5,1,"0%")}
+                        if(this.tilstedeværende[j][3] === JulieInf[3]){popUp = false;JulieInf.splice(7,1,skema.moduleTimer2[i][1]); JulieInf.splice(5,1,"0%")}
+                        if(this.tilstedeværende[j][3] === LasseInf[3]){popUp = false;LasseInf.splice(7,1,skema.moduleTimer2[i][1]); LasseInf.splice(5,1,"0%")}
+                        if(this.tilstedeværende[j][3] === LouiseInf[3]){popUp = false;LouiseInf.splice(7,1,skema.moduleTimer2[i][1]); LouiseInf.splice(5,1,"0%")}
+                        if(this.tilstedeværende[j][3] === MarcusInf[3]){popUp = false;MarcusInf.splice(7,1,skema.moduleTimer2[i][1]); MarcusInf.splice(5,1,"0%")}
+                        if(this.tilstedeværende[j][3] === MarkusInf[3]){popUp = false;MarkusInf.splice(7,1,skema.moduleTimer2[i][1]); MarkusInf.splice(5,1,"0%")}
+                        if(this.tilstedeværende[j][3] === MathiasInf[3]){popUp = false;MathiasInf.splice(7,1,skema.moduleTimer2[i][1]); MathiasInf.splice(5,1,"0%")}
+                        if(this.tilstedeværende[j][3] === ThomasInf[3]){popUp = false;ThomasInf.splice(7,1,skema.moduleTimer2[i][1]); ThomasInf.splice(5,1,"0%")}
+                    
+                    }}
+
+    
+            }}
+             }else {
+                for(let j = 0; j < this.fraværende.length; j++){
+                    if(this.person[3] === this.fraværende[j][3]){
+                        for(let i = 0; i < 6; i++){
+                            if(i === 0){
+                            if(450 < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+                        if(this.fraværende[j][3] === DanielInf[3]){popUp = false; DanielInf.splice(7,1,skema.moduleTimer2[i][1]); DanielInf.splice(5,1,"0%")}
+                        if(this.fraværende[j][3] === GustavInf[3]){popUp = false;GustavInf.splice(7,1,skema.moduleTimer2[i][1]); GustavInf.splice(5,1,"0%")}
+                        if(this.fraværende[j][3] === JulieInf[3]){popUp = false;JulieInf.splice(7,1,skema.moduleTimer2[i][1]); JulieInf.splice(5,1,"0%")}
+                        if(this.fraværende[j][3] === LasseInf[3]){popUp = false;LasseInf.splice(7,1,skema.moduleTimer2[i][1]); LasseInf.splice(5,1,"0%")}
+                        if(this.fraværende[j][3] === LouiseInf[3]){popUp = false;LouiseInf.splice(7,1,skema.moduleTimer2[i][1]); LouiseInf.splice(5,1,"0%")}
+                        if(this.fraværende[j][3] === MarcusInf[3]){popUp = false;MarcusInf.splice(7,1,skema.moduleTimer2[i][1]); MarcusInf.splice(5,1,"0%")}
+                        if(this.fraværende[j][3] === MarkusInf[3]){popUp = false;MarkusInf.splice(7,1,skema.moduleTimer2[i][1]); MarkusInf.splice(5,1,"0%")}
+                        if(this.fraværende[j][3] === MathiasInf[3]){popUp = false;MathiasInf.splice(7,1,skema.moduleTimer2[i][1]); MathiasInf.splice(5,1,"0%")}
+                        if(this.fraværende[j][3] === ThomasInf[3]){popUp = false;ThomasInf.splice(7,1,skema.moduleTimer2[i][1]); ThomasInf.splice(5,1,"0%")}
+                                
+                            }}
+                            else if(skema.moduleTimer2[i-1][1] < hour()*60+minute() && hour()*60+minute() < skema.moduleTimer2[i][1]){
+                                if(this.fraværende[j][3] === DanielInf[3]){popUp = false; DanielInf.splice(7,1,skema.moduleTimer2[i][1]); DanielInf.splice(5,1,"0%")}
+                                if(this.fraværende[j][3] === GustavInf[3]){popUp = false;GustavInf.splice(7,1,skema.moduleTimer2[i][1]);GustavInf.splice(5,1,"0%")}
+                                if(this.fraværende[j][3] === JulieInf[3]){popUp = false;JulieInf.splice(7,1,skema.moduleTimer2[i][1]); JulieInf.splice(5,1,"0%")}
+                                if(this.fraværende[j][3] === LasseInf[3]){popUp = false;LasseInf.splice(7,1,skema.moduleTimer2[i][1]); LasseInf.splice(5,1,"0%")}
+                                if(this.fraværende[j][3] === LouiseInf[3]){popUp = false;LouiseInf.splice(7,1,skema.moduleTimer2[i][1]); LouiseInf.splice(5,1,"0%")}
+                                if(this.fraværende[j][3] === MarcusInf[3]){popUp = false;MarcusInf.splice(7,1,skema.moduleTimer2[i][1]);  MarcusInf.splice(5,1,"0%")}
+                                if(this.fraværende[j][3] === MarkusInf[3]){popUp = false;MarkusInf.splice(7,1,skema.moduleTimer2[i][1]);  MarkusInf.splice(5,1,"0%")}
+                                if(this.fraværende[j][3] === MathiasInf[3]){popUp = false;MathiasInf.splice(7,1,skema.moduleTimer2[i][1]); MathiasInf.splice(5,1,"0%")}
+                                if(this.fraværende[j][3] === ThomasInf[3]){popUp = false;ThomasInf.splice(7,1,skema.moduleTimer2[i][1]); ThomasInf.splice(5,1,"0%")}
+                            
+                            }}
+            
+                    }}
+                     }
+}
 
 
 
@@ -211,38 +286,38 @@ rect(663.5+122.5*2.5-150,630-25,300,50)
     textAlign(CENTER,CENTER)
 text("Ingen billeder, giv fuld fravær?",662.5+122.5*2.5,630)
 
-if(mouseX >663.5+122.5*2.5-150 && mouseX < 663.5+122.5*2.5-150+300 && mouseY > 630-25 && mouseY <630+25 && mouseIsPressed){
+if(mouseX >663.5+122.5*2.5-150 && mouseX < 663.5+122.5*2.5-150+300 && mouseY > 630-25 && mouseY <630+25 && mouseIsPressed && this.additionalTimer < millis()){
     if(this.person[0] === true){
     for(let j = 0; j < this.tilstedeværende.length; j++){
         if(this.person[3] === this.tilstedeværende[j][3]){
-            if(this.tilstedeværende[j][3] === DanielInf[3]){popUp = false; DanielInf.splice(0,1,false)}
-            if(this.tilstedeværende[j][3] === GustavInf[3]){popUp = false;GustavInf.splice(0,1,false)}
-            if(this.tilstedeværende[j][3] === JulieInf[3]){popUp = false;JulieInf.splice(0,1,false)}
-            if(this.tilstedeværende[j][3] === LasseInf[3]){popUp = false;LasseInf.splice(0,1,false)}
-            if(this.tilstedeværende[j][3] === LouiseInf[3]){popUp = false;LouiseInf.splice(0,1,false)}
-            if(this.tilstedeværende[j][3] === MarcusInf[3]){popUp = false;MarcusInf.splice(0,1,false)}
-            if(this.tilstedeværende[j][3] === MarkusInf[3]){popUp = false;MarkusInf.splice(0,1,false)}
-            if(this.tilstedeværende[j][3] === MathiasInf[3]){popUp = false;MathiasInf.splice(0,1,false)}
-            if(this.tilstedeværende[j][3] === ThomasInf[3]){popUp = false;ThomasInf.splice(0,1,false)}
+            if(this.tilstedeværende[j][3] === DanielInf[3]){popUp = false; DanielInf.splice(7,1,0)}
+            if(this.tilstedeværende[j][3] === GustavInf[3]){popUp = false;GustavInf.splice(7,1,0)}
+            if(this.tilstedeværende[j][3] === JulieInf[3]){popUp = false;JulieInf.splice(7,1,0)}
+            if(this.tilstedeværende[j][3] === LasseInf[3]){popUp = false;LasseInf.splice(7,1,0)}
+            if(this.tilstedeværende[j][3] === LouiseInf[3]){popUp = false;LouiseInf.splice(7,1,0)}
+            if(this.tilstedeværende[j][3] === MarcusInf[3]){popUp = false;MarcusInf.splice(7,1,0)}
+            if(this.tilstedeværende[j][3] === MarkusInf[3]){popUp = false;MarkusInf.splice(7,1,0)}
+            if(this.tilstedeværende[j][3] === MathiasInf[3]){popUp = false;MathiasInf.splice(7,1,0)}
+            if(this.tilstedeværende[j][3] === ThomasInf[3]){popUp = false;ThomasInf.splice(7,1,0)}
 
         }}
          }else {
             for(let j = 0; j < this.fraværende.length; j++){
                 if(this.person[3] === this.fraværende[j][3]){
-                    if(this.fraværende[j][3] === DanielInf[3]){popUp = false; DanielInf.splice(0,1,false)}
-                    if(this.fraværende[j][3] === GustavInf[3]){popUp = false;GustavInf.splice(0,1,false)}
-                    if(this.fraværende[j][3] === JulieInf[3]){popUp = false;JulieInf.splice(0,1,false)}
-                    if(this.fraværende[j][3] === LasseInf[3]){popUp = false;LasseInf.splice(0,1,false)}
-                    if(this.fraværende[j][3] === LouiseInf[3]){popUp = false;LouiseInf.splice(0,1,false)}
-                    if(this.fraværende[j][3] === MarcusInf[3]){popUp = false;MarcusInf.splice(0,1,false)}
-                    if(this.fraværende[j][3] === MarkusInf[3]){popUp = false;MarkusInf.splice(0,1,false)}
-                    if(this.fraværende[j][3] === MathiasInf[3]){popUp = false;MathiasInf.splice(0,1,false)}
-                    if(this.fraværende[j][3] === ThomasInf[3]){popUp = false;ThomasInf.splice(0,1,false)}
+                    if(this.fraværende[j][3] === DanielInf[3]){popUp = false; DanielInf.splice(7,1,0)}
+                    if(this.fraværende[j][3] === GustavInf[3]){popUp = false;GustavInf.splice(7,1,0)}
+                    if(this.fraværende[j][3] === JulieInf[3]){popUp = false;JulieInf.splice(7,1,0)}
+                    if(this.fraværende[j][3] === LasseInf[3]){popUp = false;LasseInf.splice(7,1,0)}
+                    if(this.fraværende[j][3] === LouiseInf[3]){popUp = false;LouiseInf.splice(7,1,0)}
+                    if(this.fraværende[j][3] === MarcusInf[3]){popUp = false;MarcusInf.splice(7,1,0)}
+                    if(this.fraværende[j][3] === MarkusInf[3]){popUp = false;MarkusInf.splice(7,1,0)}
+                    if(this.fraværende[j][3] === MathiasInf[3]){popUp = false;MathiasInf.splice(7,1,0)}
+                    if(this.fraværende[j][3] === ThomasInf[3]){popUp = false;ThomasInf.splice(7,1,0)}
         
                 }}
                  }
                 
-
+                 
          }
         
         }
@@ -313,22 +388,27 @@ if(this.scroll > 0){
     this.scroll = 0
 }
 
-for(let i = 0; i < 6; i++){
-if(this.minuteTimer < minute() && hour()*60+minute() > skema.moduleTimer2[i][0] && hour()*60+minute() < skema.moduleTimer2[i][1] ){
-    console.log("giver fravær")
-if(DanielInf[0]=== false){DanielInf[5]++}
-if(GustavInf[0]=== false){GustavInf[5]++}
-if(JulieInf[0]=== false){JulieInf[5]++}
-if(LasseInf[0]=== false){LasseInf[5]++}
-if(LouiseInf[0]=== false){LouiseInf[5]++}
-if(MarcusInf[0]=== false){MarcusInf[5]++}
-if(MarkusInf[0]=== false){MarkusInf[5]++}
-if(MathiasInf[0]=== false){MathiasInf[5]++}
-if(ThomasInf[0]=== false){ThomasInf[5]++}
+
+if(DanielInf[0]=== false){DanielInf.splice(5,1,"100%")}
+if(GustavInf[0]=== false){GustavInf.splice(5,1,"100%")}
+if(JulieInf[0]=== false){JulieInf.splice(5,1,"100%")}
+if(LasseInf[0]=== false){LasseInf.splice(5,1,"100%")}
+if(LouiseInf[0]=== false){LouiseInf.splice(5,1,"100%")}
+if(MarcusInf[0]=== false){MarcusInf.splice(5,1,"100%")}
+if(MarkusInf[0]=== false){MarkusInf.splice(5,1,"100%")}
+if(MathiasInf[0]=== false){MathiasInf.splice(5,1,"100%")}
+if(ThomasInf[0]=== false){ThomasInf.splice(5,1,"100%")}
 
 
-this.minuteTimer++
-}}
+if(DanielInf[0]=== true){DanielInf.splice(5,1,"0%")}
+if(GustavInf[0]=== true){GustavInf.splice(5,1,"0%")}
+if(JulieInf[0]=== true){JulieInf.splice(5,1,"0%")}
+if(LasseInf[0]=== true){LasseInf.splice(5,1,"0%")}
+if(LouiseInf[0]=== true){LouiseInf.splice(5,1,"0%")}
+if(MarcusInf[0]=== true){MarcusInf.splice(5,1,"0%")}
+if(MarkusInf[0]=== true){MarkusInf.splice(5,1,"0%")}
+if(MathiasInf[0]=== true){MathiasInf.splice(5,1,"0%")}
+if(ThomasInf[0]=== true){ThomasInf.splice(5,1,"0%")}
 
 
 
